@@ -33,6 +33,22 @@ docker exec -it pinot-controller-json bin/pinot-admin.sh AddTable   \
 
  A lil' bit of Kotlin that creates random-ish ratings around a few movies and dumps them into Kafka real fast.
 
+First, install Kotlin and https://github.com/kscripting/kscript[`kscript`^] if you don't already have that installed:
+
+```
+curl -s "https://get.sdkman.io" | bash     # install sdkman
+source "$HOME/.sdkman/bin/sdkman-init.sh"  # add sdkman to PATH
+
+sdk install kotlin                         # install Kotlin
+sdk install kscript                        # install kscript
+```
+
+And then run the script:
+
+```
+kscript code/ratings.kts
+```
+
  ## Do the Pinot query
 
  Join the `ratings` table to the `movies` table and average up the ratings.

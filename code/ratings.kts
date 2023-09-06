@@ -1,3 +1,16 @@
+@file:DependsOn("com.google.code.gson:gson:2.8.6")
+@file:DependsOn("org.apache.kafka:kafka-clients:2.8.0")
+
+
+import java.util.Properties
+import java.util.Random
+
+import com.google.gson.Gson
+import java.time.Instant
+import java.util.Date
+
+
+
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.serialization.LongSerializer
@@ -5,12 +18,13 @@ import org.apache.kafka.common.serialization.StringSerializer
 import kotlin.math.max
 import kotlin.math.min
 
-data class Rating(val movieId: Int, val rating: Double, val ratingTime: java.util.Date)
+data class Rating(val movieId: Int, val rating: Double, val ratingTime: Long)
 
 class JSONRatingStreamer {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
+            print("foo")
             val ratingTargets = listOf(
                 mapOf("id" to 128, "rating" to 7.9),  // The Big Lebowski
                 mapOf("id" to 211, "rating" to 7.7),  // A Beautiful Mind
@@ -52,17 +66,18 @@ class JSONRatingStreamer {
                     val targetIndex = random.nextInt(numberOfTargets)
                     val randomRating = (random.nextGaussian() * stddev) + ratingTargets[targetIndex]["rating"] as Double
                     val boundedRating = max(0.0, min(randomRating, 10.0))
-                    val rating = Rating(ratingTargets[targetIndex]["id"] as Int, boundedRating)
+                    val rating = Rating(ratingTargets[targetIndex]["id"] as Int, boundedRating, System.currentTimeMillis())
+
 
                     if (System.currentTimeMillis() / 1000 > currentTime) {
                         currentTime = System.currentTimeMillis() / 1000
                         println("RATINGS PRODUCED $recordsProduced")
                     }
 
-                    val pr = ProducerRecord("ratings", 
-                                            rating.movieId.toLong(), 
-                                            Parser.toJson(rating).toString(),
-                                            Clock.now().toEpochMilliseconds())
+                    val pr = ProducerRecord<Long, String>("ratings", 
+                                      rating.movieId.toLong(), 
+                                      Gson().toJson(rating))
+
                     producer.send(pr)
                     recordsProduced++
                 }
@@ -72,3 +87,9 @@ class JSONRatingStreamer {
         }
     }
 }
+
+
+println("Script started")
+println("Before main function call")
+JSONRatingStreamer.main(arrayOf("localhost:9092"))
+println("After main function call")
