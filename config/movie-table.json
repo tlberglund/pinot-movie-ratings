@@ -5,7 +5,7 @@
         "timeColumnName": "releaseDate",
         "timeType": "MILLISECONDS",
         "schemaName": "movies",
-        "replicasPerPartition": "1"
+        "replication": "1"
     },
     "task": {
         "taskTypeConfigsMap": {}
