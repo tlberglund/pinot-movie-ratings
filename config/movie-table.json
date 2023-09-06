@@ -1,0 +1,20 @@
+{
+    "tableName": "movies",
+    "tableType": "OFFLINE",
+    "segmentsConfig": {
+        "timeColumnName": "releaseDate",
+        "timeType": "MILLISECONDS",
+        "schemaName": "movies",
+        "replicasPerPartition": "1"
+    },
+    "task": {
+        "taskTypeConfigsMap": {}
+    },
+    "tenants": {},
+    "tableIndexConfig": {
+        "loadMode": "MMAP"
+    },
+    "metadata": {
+        "customConfigs": {}
+    }
+}

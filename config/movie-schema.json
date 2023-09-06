@@ -1,0 +1,27 @@
+{
+    "schemaName": "movies",
+    "dimensionFieldSpecs": [
+        {
+            "name": "movieId",
+            "dataType": "INT"
+        },
+        {
+            "name": "title",
+            "dataType": "STRING"
+        }
+    ],
+    "metricFieldSpecs": [
+        {
+            "name": "rating",
+            "dataType": "DOUBLE"
+        }
+    ],
+    "dateTimeFieldSpecs": [
+        {
+            "name": "releaseDate",
+            "dataType": "TIMESTAMP",
+            "format": "SIMPLE_DATE_FORMAT|yyyy",
+            "granularity": "1:DAYS"
+        }
+    ]
+}

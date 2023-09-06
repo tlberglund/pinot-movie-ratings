@@ -1,0 +1,41 @@
+{
+    "movie_id": 1,
+    "title": "Once Upon a Time in the West",
+    "release_year": 1968,
+    "country": "Italy",
+    "rating": 8.199999809265137,
+    "genres": [
+        "Western"
+    ],
+    "actors": [
+        "Claudia Cardinale",
+        "Charles Bronson",
+        "Henry Fonda",
+        "Gabriele Ferzetti",
+        "Frank Wolff",
+        "Al Mulock",
+        "Jason Robards",
+        "Woody Strode",
+        "Jack Elam",
+        "Lionel Stander",
+        "Paolo Stoppa",
+        "Keenan Wynn",
+        "Aldo Sambrell"
+    ],
+    "directors": [
+        "Sergio Leone"
+    ],
+    "composers": [
+        "Ennio Morricone"
+    ],
+    "screenwriters": [
+        "Sergio Leone",
+        "Sergio Donati",
+        "Dario Argento",
+        "Bernardo Bertolucci"
+    ],
+    "production_companies": [
+        "Paramount Pictures"
+    ],
+    "cinematographer": "Tonino Delli Colli"
+}

@@ -1,0 +1,23 @@
+{
+    "schemaName": "ratings",
+    "dimensionFieldSpecs": [
+        {
+            "name": "movieId",
+            "dataType": "INT"
+        }
+    ],
+    "metricFieldSpecs": [
+        {
+            "name": "rating",
+            "dataType": "DOUBLE"
+        }
+    ],
+    "dateTimeFieldSpecs": [
+        {
+            "name": "ratingTime",
+            "dataType": "TIMESTAMP",
+            "format": "1:MILLISECONDS:EPOCH",
+            "granularity": "1:MILLISECONDS"
+        }
+    ]
+}

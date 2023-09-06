@@ -1,0 +1,29 @@
+{
+    "tableName": "ratings",
+    "tableType": "REALTIME",
+    "segmentsConfig": {
+      "timeColumnName": "ratingTime",
+      "timeType": "MILLISECONDS",
+      "schemaName": "ratings",
+      "replicasPerPartition": "1"
+    },
+    "task": {
+      "taskTypeConfigsMap": {}
+    },
+    "tenants": {},
+    "tableIndexConfig": {
+      "loadMode": "MMAP",
+      "streamConfigs": {
+        "streamType": "kafka",
+        "stream.kafka.broker.list": "kafka-json:9093",
+        "stream.kafka.consumer.type": "lowLevel",
+        "stream.kafka.topic.name": "events",
+        "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.stream.kafka.KafkaJSONMessageDecoder",
+        "stream.kafka.consumer.factory.class.name": "org.apache.pinot.plugin.stream.kafka20.KafkaConsumerFactory",
+        "stream.kafka.consumer.prop.auto.offset.reset": "smallest"
+      }
+    },
+    "metadata": {
+      "customConfigs": {}
+    }
+  }
