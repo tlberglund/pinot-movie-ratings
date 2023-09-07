@@ -15,7 +15,7 @@
         "loadMode": "MMAP",
         "streamConfigs": {
             "streamType": "kafka",
-            "stream.kafka.broker.list": "kafka-json:9093",
+            "stream.kafka.broker.list": "kafka:9093",
             "stream.kafka.consumer.type": "lowLevel",
             "stream.kafka.topic.name": "ratings",
             "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.stream.kafka.KafkaJSONMessageDecoder",

@@ -11,14 +11,14 @@ docker-compose up
 ## Create the tables
 
 ```
-docker exec -it pinot-controller-json bin/pinot-admin.sh AddTable   \
+docker exec -it pinot-controller bin/pinot-admin.sh AddTable   \
   -tableConfigFile /config/movie-table.json   \
   -schemaFile /config/movie-schema.json \
   -exec
  ```
 
  ```
-docker exec -it pinot-controller-json bin/pinot-admin.sh AddTable   \
+docker exec -it pinot-controller bin/pinot-admin.sh AddTable   \
   -tableConfigFile /config/rating-table.json   \
   -schemaFile /config/rating-schema.json \
   -exec
@@ -27,7 +27,7 @@ docker exec -it pinot-controller-json bin/pinot-admin.sh AddTable   \
  ## Load the movie data
 
 ```
-docker exec -it pinot-controller-json bin/pinot-admin.sh LaunchDataIngestionJob \
+docker exec -it pinot-controller bin/pinot-admin.sh LaunchDataIngestionJob \
   -jobSpecFile /config/movie-ingest-spec.yaml
 ```
 

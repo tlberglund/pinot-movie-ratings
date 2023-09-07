@@ -15,7 +15,7 @@
         "loadMode": "MMAP",
         "invertedIndexColumns": [
             "title",
-            "releaseYear"
+            "releaseDate"
         ]
 
     },
