@@ -56,8 +56,9 @@ kscript code/ratings.kts
  Join the `ratings` table to the `movies` table and average up the ratings.
 
 ```sql
-SELECT title, releaseYear, avg(ratings.rating) as avgRating
+SELECT title, releaseYear, ceil(avg(ratings.rating)*10)/10 as avgRating
   FROM ratings INNER JOIN movies 
     ON ratings.movieId = movies.movieId
-  GROUP BY title, releaseYear;
+  GROUP BY title, releaseYear
+  ORDER BY avgRating DESC;
 ```

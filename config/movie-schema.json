@@ -8,20 +8,16 @@
         {
             "name": "title",
             "dataType": "STRING"
+        },
+        {
+            "name": "releaseYear",
+            "dataType": "INT"
         }
     ],
     "metricFieldSpecs": [
         {
             "name": "rating",
             "dataType": "DOUBLE"
-        }
-    ],
-    "dateTimeFieldSpecs": [
-        {
-            "name": "releaseDate",
-            "dataType": "TIMESTAMP",
-            "format": "SIMPLE_DATE_FORMAT|yyyy",
-            "granularity": "1:DAYS"
         }
     ]
 }

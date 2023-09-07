@@ -2,8 +2,6 @@
     "tableName": "movies",
     "tableType": "OFFLINE",
     "segmentsConfig": {
-        "timeColumnName": "releaseDate",
-        "timeType": "MILLISECONDS",
         "schemaName": "movies",
         "replication": "1"
     },
@@ -15,7 +13,7 @@
         "loadMode": "MMAP",
         "invertedIndexColumns": [
             "title",
-            "releaseDate"
+            "releaseYear"
         ]
 
     },
