@@ -12,7 +12,12 @@
     },
     "tenants": {},
     "tableIndexConfig": {
-        "loadMode": "MMAP"
+        "loadMode": "MMAP",
+        "invertedIndexColumns": [
+            "title",
+            "releaseYear"
+        ]
+
     },
     "metadata": {
         "customConfigs": {}

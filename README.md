@@ -26,8 +26,10 @@ docker exec -it pinot-controller-json bin/pinot-admin.sh AddTable   \
 
  ## Load the movie data
 
- This is about a thousand rows of reference data.
-
+```
+docker exec -it pinot-controller-json bin/pinot-admin.sh LaunchDataIngestionJob \
+  -jobSpecFile /config/movie-ingest-spec.yaml
+```
 
  ## Start the ratings script
 
@@ -52,3 +54,10 @@ kscript code/ratings.kts
  ## Do the Pinot query
 
  Join the `ratings` table to the `movies` table and average up the ratings.
+
+```sql
+SELECT title, releaseYear, avg(ratings.rating) as avgRating
+  FROM ratings INNER JOIN movies 
+    ON ratings.movieId = movies.movieId
+  GROUP BY title, releaseYear;
+```
