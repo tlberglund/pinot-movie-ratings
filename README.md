@@ -1,6 +1,6 @@
 # Apache Pinot™ Movie Rating Demo
 
-An extremely incomplete procedure here...
+A more or less complete procedure here...
 
 ## Start the system
 
